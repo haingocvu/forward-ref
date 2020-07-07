@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Counter from './components/Counter';
 
 function App() {
+
+  const aRef = React.createRef();
+
+  const handleClick = function LogRef() {
+    console.log(aRef);
+    aRef.current.click();
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter aa={12} ref={aRef} />
+      <br />
+      <button onClick={handleClick}>aRef</button>
     </div>
   );
 }
